@@ -1,0 +1,25 @@
+1. Convertir palabras a mayúsculas iniciales: "cáceres patrimonio de la humanidad" → "Cáceres Patrimonio De La Humanidad"
+
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+string PonerMayus(string cadena) {
+    for (size_t i = 0; i < cadena.length(); ++i) {
+        if (i == 0 || isspace(cadena[i - 1])) {
+            cadena[i] = toupper(cadena[i]);
+        } else {
+            cadena[i] = tolower(cadena[i]);
+        }
+    }
+    return cadena;
+}
+
+int main() {
+	setlocale(LC_ALL, "");
+    string input = "cáceres patrimonio de la humanidad";
+    string capitalized = PonerMayus(input);
+    cout << capitalized << endl;
+    return 0;
+}
