@@ -1,0 +1,42 @@
+8. Comprobar si un número de 10 cifras es capicúa usando un vector.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool esCapicua(long long int numero) {
+    vector<int> digitos;
+    // Extraer los dígitos del número y almacenarlos en un vector
+    while (numero > 0) {
+        int digito = numero % 10;
+        digitos.push_back(digito);
+        numero /= 10;
+    }
+    // Comparar los dígitos para determinar si el número es capicúa
+    int i = 0;
+    int j = digitos.size()-1;
+    while (i < j) {
+        if (digitos[i] != digitos[j]) {
+            return false; // No es capicúa
+        }
+        i++;
+        j--;
+    }
+    return true; // Es capicúa
+}
+
+int main() {
+    long long int numero;
+    cout << "Ingrese un número de 10 cifras: ";
+    cin >> numero;
+    if (to_string(numero).size() != 10) {
+        cout << "El número debe tener exactamente 10 cifras." << endl;
+        return 1;
+    }
+    if (esCapicua(numero)) {
+        cout << "El número es capicúa." << endl;
+    } else {
+        cout << "El número no es capicúa." << endl;
+    }
+    return 0;
+}
