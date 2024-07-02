@@ -1,0 +1,17 @@
+2. Programa que haga "eco" de la entrada, poniendo cada palabra en una línea separada.
+
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+int main() {
+    string eco;
+    cout << "Ingresa una frase: ";
+    getline(cin, eco);
+    istringstream iss(eco);
+    string word;
+    while (iss >> word) {
+        cout << word << endl;
+    }
+    return 0;
+}
