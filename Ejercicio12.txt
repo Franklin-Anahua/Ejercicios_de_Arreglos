@@ -1,0 +1,29 @@
+12. Implementar una función que reciba un vector, su longitud y retorne true si el mismo se encuentra
+ordenado, false en caso contrario
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+bool estaOrdenado(const int vector[], int longitud) {
+    for (int i = 1; i < longitud; i++) {
+        if (vector[i] < vector[i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int longitud = 5;
+    int vector[] = {1, 2, 4, 5, 7};
+    bool ordenado = estaOrdenado(vector, longitud);
+	setlocale(LC_ALL, "");
+    if (ordenado) {
+        cout << "El vector está ordenado." << endl;
+    } else {
+        cout << "El vector no está ordenado." << endl;
+    }
+
+    return 0;
+}
