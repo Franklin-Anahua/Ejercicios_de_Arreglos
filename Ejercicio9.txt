@@ -1,0 +1,27 @@
+9. Rotar las componentes de un vector una posición hacia la derecha.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void rotateVector(vector<int>& vec) {
+    if (vec.empty()) {
+        return;
+    }
+    int temp = vec.back(); // Guardar el último elemento
+    for (int i = vec.size() - 1; i > 0; i--) {
+        vec[i] = vec[i - 1]; // Mover cada elemento una posición a la derecha
+    }
+    vec[0] = temp; // Asignar el último elemento al inicio
+}
+
+int main() {
+    vector<int> vec = {1, 2, 3, 4, 5};
+    rotateVector(vec);
+    // Imprimir el vector rotado
+    for (const auto& num : vec) {
+        cout << num << " ";
+    }
+    cout << endl;
+    return 0;
+}
