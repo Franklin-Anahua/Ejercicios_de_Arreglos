@@ -1,0 +1,27 @@
+3. Contar la ocurrencia de una letra específica en una cadena de entrada
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int contarOcurrencias(string cadena, char letra) {
+    int contador = 0;
+    for (char c : cadena) {
+        if (c == letra) {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+int main() {
+    string cadena;
+    char letra;
+    cout << "Ingrese la cadena: ";
+    getline(cin, cadena);
+    cout << "Ingrese la letra a contar: ";
+    cin >> letra;
+    int ocurrencias = contarOcurrencias(cadena, letra);
+    cout << "La letra '" << letra << "' aparece " << ocurrencias << " veces en la cadena." << endl;
+    return 0;
+}
