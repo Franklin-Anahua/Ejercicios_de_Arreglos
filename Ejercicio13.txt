@@ -1,0 +1,22 @@
+13. Generar la función mistrcpy(str1,str2) que copia str2 en str1. No usar la funciones de String.h 
+
+#include <iostream>
+using namespace std;
+
+void mistrcpy(char* str1, const char* str2) {
+    while (*str2 != '\0') {
+        *str1 = *str2;
+        str1++;
+        str2++;
+    }
+    *str1 = '\0';
+}
+
+int main() {
+    const int MAX_LEN = 100;
+    char cadena1[MAX_LEN];
+    const char* cadena2 = "Hola Mundo";
+    mistrcpy(cadena1, cadena2);
+    cout << "Cadena 1: " << cadena1 << endl;
+    return 0;
+}
