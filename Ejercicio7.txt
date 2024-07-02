@@ -1,0 +1,23 @@
+7. Invertir un vector e imprimirlo.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> vec = {1, 2, 3, 4, 5};
+    // Invertir el vector
+    int n = vec.size();
+    for (int i = 0; i < n / 2; i++) {
+        int temp = vec[i];
+        vec[i] = vec[n - i - 1];
+        vec[n - i - 1] = temp;
+    }
+
+    // Imprimir el vector invertido
+    for (int i = 0; i < n; i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+    return 0;
+}
