@@ -1,0 +1,26 @@
+5. Programa que lee n números, encuentra el mayor y el menor, y cuenta sus repeticiones.
+
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese la cantidad de números: ";
+    cin >> n;
+    int numero;
+    map<int, int> frecuencia;
+    int mayor = INT_MIN;
+    int menor = INT_MAX;
+
+    cout << "Ingrese los números:\n";
+    for (int i = 0; i < n; ++i) {
+        cin >> numero;
+        frecuencia[numero]++;
+        mayor = max(mayor, numero);
+        menor = min(menor, numero);
+    }
+    cout << "El número mayor es: " << mayor << " y se repite " << frecuencia[mayor] << " veces.\n";
+    cout << "El número menor es: " << menor << " y se repite " << frecuencia[menor] << " veces.\n";
+    return 0;
+}
