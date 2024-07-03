@@ -1,0 +1,41 @@
+Solicite al contador del almacén La Milagrosa el monto de las ventas mensuales de todo el año 2020. Luego,
+el contador desea obtener los siguientes resultados:
+• Valor de la venta mensual promedio.
+• Obtenga el porcentaje de los meses del año que cumplieron los siguientes niveles de ventas:
+• Indique los nombres de los meses (enero, febrero, etc.) en los cuales la venta fue 
+
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+int main() {
+    // Definir vector para almacenar las ventas mensuales
+    vector<int> ventasMensuales(12);
+    // Solicitar al usuario ingresar las ventas mensuales de todo el año 2020
+    for (int i = 0; i < 12; i++) {
+        cout << "Ingrese el monto de ventas del mes " << i + 1 << ": ";
+        cin >> ventasMensuales[i];
+    }
+    // Calcular el total de ventas en el año
+    int totalVentas = 0;
+    for (int i = 0; i < 12; i++) {
+        totalVentas += ventasMensuales[i];
+    }
+    // Calcular el valor de la venta mensual promedio
+    float ventaPromedio = static_cast<float>(totalVentas) / 12;
+    cout << "Valor de la venta mensual promedio: " << ventaPromedio << endl;
+    // Definir los niveles de ventas para determinar cuándo son "Excelentes"
+    int nivelExcelente = 10000;
+    int mesesExcelentes = 0;
+    // Obtener el porcentaje de meses que alcanzaron ciertos niveles de ventas
+    for (int i = 0; i < 12; i++) {
+        if (ventasMensuales[i] >= nivelExcelente) {
+            mesesExcelentes++;
+            string nombreMeses[] = {"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
+            cout << "El mes " << nombreMeses[i] << " tiene ventas Excelentes." << endl;
+        }
+    }
+    float porcentajeExcelentes = (static_cast<float>(mesesExcelentes) / 12) * 100;
+    cout << "El porcentaje de meses con ventas Excelentes es: " << porcentajeExcelentes << "%" << endl;
+    return 0;
+}
