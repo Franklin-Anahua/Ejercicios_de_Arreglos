@@ -1,0 +1,46 @@
+19. Escribir un programa que dada una frase, determine si es un palíndromo o no. Un palíndromo es una
+frase que, atendiendo sólo a sus letras e ignorando los espacios, acentos, signos de puntuación y tipo
+de letra (mayúscula o minúscula) expresa lo mismo leída de izquierda a derecha que de derecha a
+izquierda. “dábale arroz a la zorra el abad”.
+
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+bool esPalindromo(const string& frase) {
+    string fraseSinEspacios;
+
+    // Eliminar espacios y convertir a minúsculas
+    for (int i = 0; i < frase.length(); i++) {
+        if (isalpha(frase[i])) {
+            fraseSinEspacios += tolower(frase[i]);
+        }
+    }
+
+    int inicio = 0;
+    int fin = fraseSinEspacios.length() - 1;
+
+    while (inicio < fin) {
+        if (fraseSinEspacios[inicio] != fraseSinEspacios[fin]) {
+            return false; // No es un palíndromo
+        }
+        inicio++;
+        fin--;
+    }
+
+    return true; // Es un palíndromo
+}
+
+int main() {
+	setlocale(LC_ALL, "");
+	string frase;
+	cout << "Escriba una frase: ";
+	cin >> frase;
+    if (esPalindromo(frase)) {
+        cout << "La frase es un palíndromo." << endl;
+    } else {
+        cout << "La frase no es un palíndromo." << endl;
+    }
+    return 0;
+}
