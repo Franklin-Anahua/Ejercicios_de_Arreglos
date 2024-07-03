@@ -23,7 +23,9 @@ bool balanceoParentesisCorrecto(const string& frase) {
 
 int main() {
 	setlocale(LC_ALL, "");
-    string frase = "(ccc(ccc)cc((ccc(c))))";
+    string frase;
+    cout << "Escriba alguna frase con parentesis correctamente: ";
+    cin >> frase;
     if (balanceoParentesisCorrecto(frase)) {
         cout << "El balanceo de paréntesis en la frase es correcto." << endl;
     } else {
