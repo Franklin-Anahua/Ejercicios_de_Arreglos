@@ -1,0 +1,32 @@
+17. Escriba una función que dado el nombre completo de una persona y un apellido, compruebe si el apellido
+pertenece a esa persona.
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+bool verificarApellido(const string& nombreCompleto, const string& apellido) {
+    // Encuentra la última palabra en el nombre completo (que debería ser el apellido)
+    string ultimoNombre = nombreCompleto.substr(nombreCompleto.find_last_of(" ") + 1);
+
+    // Convierte ambos a minúsculas para ignorar diferencias de mayúsculas
+    string apellidoMinusculas = apellido;
+    transform(apellidoMinusculas.begin(), apellidoMinusculas.end(), apellidoMinusculas.begin(), ::tolower);
+
+    string ultimoNombreMinusculas = ultimoNombre;
+    transform(ultimoNombreMinusculas.begin(), ultimoNombreMinusculas.end(), ultimoNombreMinusculas.begin(), ::tolower);
+
+    // Comprueba si el apellido coincide con la última palabra del nombre completo
+    return apellidoMinusculas == ultimoNombreMinusculas;
+}
+
+int main() {
+    string nombreCompleto = "Juan Pérez";
+    string apellido = "Pérez";
+    if (verificarApellido(nombreCompleto, apellido)) {
+        cout << "El apellido pertenece al nombre completo" << endl;
+    } else {
+        cout << "El apellido no pertenece al nombre completo" << endl;
+    }
+    return 0;
+}
